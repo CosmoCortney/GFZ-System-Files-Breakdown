@@ -60,25 +60,21 @@ This is the main executable of the game.
 | 0000DC | BBS Size | 4 | uint32 | 0x0004C02C | 0xcb199d40 |
 | 0000E0 | Entry Point Address | 4 | uint32 | 0x80003154 (dol + 0x0154) |  |
 | 0000E4 | Padding | 4 | uint32 | 0x8015B180 |  |
-
+| | | | | | |
 | 000154 | Entrypoint | 4 | PPC | 0x4800015d | branch to dol+0x2b0 |
 | 000158 | Branch to dol+400 | 4 | PPC | 0x480002a9 | always done after Register Clearance |
-
-
-
+| | | | | | |
 | 0002B0 - 00033F | Register Clearance | 0x9C | PPC |  | clears registers 0 - 31, sets r1 to 0x801b71b0, r2 to 0x801ae6c0, r13 to 0x801adc20, goto Entrypoint+4 |
-
+| | | | | | |
 | 000400 - 000413 | Set 14th msr flag  | 0x14 | PPC |  | or msr with 0x2000, move lr to r31 (dol+0x15c), goto dol+0x7B50 |
-
+| | | | | | |
 | 0005E4 | Metrowerks Credits | 0x30 | char[0x30] |  |  |
-
+| | | | | | |
 | 0070a4 - 0070ab | Move HID2 to r3 | 0x8 | PPC |  | and go back |
 | 0070aC - 0070b3 | Move r3 to HID2 | 0x8 | PPC |  | and go back |
-
-
-
+| | | | | | |
 | 007b50 - 007b5F| Backup r0, r1 | 0x10 | PPC |  | backup r0, r1, update r1, branch to dol+0x70a4 |
 | 007b60 - 007b67 | OR r3 with 0xA0000000 | 0x8 | PPC |  | and branch to dol+0x70aC |
 | 007b68 | go to dol+0x8710 | 0x8 | PPC |  |  |
-
+| | | | | | |
 | 008710 - 0070ab | OR r3 HID0 with 0x800 | 0x10 | PPC |  | and go back |
