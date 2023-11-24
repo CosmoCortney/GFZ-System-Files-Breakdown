@@ -52,9 +52,9 @@ This is the main executable of the game.
 | 0000BC | Size Data4 | 4 | uint32 | 0x00000300 | Becomes 0x0 during initialization |
 | 0000C0 | Size Data5 | 4 | uint32 | 0x00000AC0 | Becomes 0x0, then 0xc1793891 during initialization |
 | 0000C4 | Size Data6 | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization |
-| 0000C8 | Size Data7 | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization |
-| 0000CC | Size Data8 | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization |
-| 0000D0 | Size Data9 | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization |
+| 0000C8 | Size Data7, pointer to line__.rel | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization, later pointer to line__.rel |
+| 0000CC | Size Data8, pointer to current rel (title.rel, sel.rel, ...) | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization, pointer to .rel file |
+| 0000D0 | Size Data9, rel/plf file list | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization |
 | 0000D4 | Size Data10 | 4 | uint32 | 0x00000000 | Becomes 0x00178700 during initialization |
 | 0000D8 | BBS Address | 4 | uint32 | 0x8015B180 | 0x006c80aa|
 | 0000DC | BBS Size | 4 | uint32 | 0x0004C02C | 0xcb199d40 |
