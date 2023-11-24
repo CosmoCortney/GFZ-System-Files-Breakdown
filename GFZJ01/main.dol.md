@@ -53,7 +53,7 @@ This is the main executable of the game.
 | 0000C0 | Size Data5 | 4 | uint32 | 0x00000AC0 | Becomes 0x0, then 0xc1793891 during initialization |
 | 0000C4 | Size Data6 | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization |
 | 0000C8 | Size Data7, pointer to line__.rel | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization, later pointer to line__.rel |
-| 0000CC | Size Data8, pointer to current rel (title.rel, sel.rel, ...) | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization, pointer to .rel file |
+| 0000CC | Size Data8, pointer to current rel (title.rel, sel.rel, ...) | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization, pointer to .rel file. Points to line__.rel when in a race |
 | 0000D0 | Size Data9, rel/plf file list | 4 | uint32 | 0x00000000 | Becomes 0x0 during initialization |
 | 0000D4 | Size Data10 | 4 | uint32 | 0x00000000 | Becomes 0x00178700 during initialization |
 | 0000D8 | BBS Address | 4 | uint32 | 0x8015B180 | 0x006c80aa|
@@ -78,3 +78,11 @@ This is the main executable of the game.
 | 007b68 | go to dol+0x8710 | 0x8 | PPC |  |  |
 | | | | | | |
 | 008710 - 0070ab | OR r3 HID0 with 0x800 | 0x10 | PPC |  | and go back |
+| | | | | | |
+| 00AEFC - 00AF0F | Update lis instructions | 0x14 | | | |
+| 00AF10 - 00AF2B | ??? | 0x1C | | | |
+| 00AF2C - 00AF4B | Update branch(?) instructions | 0x20 | | | |
+| 00AF4C - 00AF6B | ??? | 0x20 | | | |
+
+
+
